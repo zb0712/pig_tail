@@ -78,10 +78,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 31
+        "__id__": 32
       },
       {
-        "__id__": 32
+        "__id__": 33
       }
     ],
     "_prefab": null,
@@ -171,7 +171,7 @@
       "array": [
         0,
         0,
-        351.60631393648214,
+        273.9238510744167,
         0,
         0,
         0,
@@ -246,12 +246,15 @@
       },
       {
         "__id__": 22
+      },
+      {
+        "__id__": 29
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 30
+        "__id__": 31
       }
     ],
     "_prefab": null,
@@ -270,15 +273,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 0
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        -333.5,
+        -187.5,
         0,
         0,
         0,
@@ -304,7 +307,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Button",
+    "_name": "开始",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -343,8 +346,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        226.416,
-        9.52,
+        333.876,
+        187.296,
         0,
         0,
         0,
@@ -366,7 +369,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "81J/vwSKtB1LST+/cE0SX+"
+    "_id": "aeyuwHhDxIVZ5F/BPtjDaZ"
   },
   {
     "__type__": "cc.Node",
@@ -435,7 +438,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "54D70h8E1LRplyGes1jvvw"
+    "_id": "65B759hCBFGYdx3wNfVmbj"
   },
   {
     "__type__": "cc.Node",
@@ -497,7 +500,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "91Xkre9LNMT47aJ80zgMW8"
+    "_id": "7fxKo74vpJILVKqXVXijji"
   },
   {
     "__type__": "cc.Label",
@@ -513,8 +516,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "button",
-    "_N$string": "button",
+    "_string": "开始",
+    "_N$string": "开始",
     "_fontSize": 20,
     "_lineHeight": 40,
     "_enableWrapText": false,
@@ -527,7 +530,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 1,
     "_N$cacheMode": 0,
-    "_id": "58DA2SuAhEq7VKuBFOqC19"
+    "_id": "52zsl91BRJF5PEZRZfJNc+"
   },
   {
     "__type__": "cc.Sprite",
@@ -559,7 +562,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "1fC9/NYm1Jy59EQiTKa1q2"
+    "_id": "79O8uf5jFD7Iuf/B/TGSR9"
   },
   {
     "__type__": "cc.Widget",
@@ -586,7 +589,7 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 100,
     "_originalHeight": 40,
-    "_id": "aevQMbCzROKo4VuG2FdHVy"
+    "_id": "379gpHffVJNa/66aRLRlkd"
   },
   {
     "__type__": "cc.Button",
@@ -672,7 +675,7 @@
     "_N$target": {
       "__id__": 7
     },
-    "_id": "84KceFwFBAjI9DmHpyaPSp"
+    "_id": "4bUiMn/i9KKrZoVtJwbMOC"
   },
   {
     "__type__": "cc.ClickEvent",
@@ -681,12 +684,12 @@
     },
     "component": "",
     "_componentId": "469a68TozpBQ4ob2lBK9rXj",
-    "handler": "testFun3",
+    "handler": "Begin",
     "customEventData": ""
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Button",
+    "_name": "摸牌",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -696,7 +699,7 @@
         "__id__": 15
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 20
@@ -725,8 +728,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -14.013,
-        -99.843,
+        194.026,
+        164.065,
         0,
         0,
         0,
@@ -748,7 +751,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "26hk+KGv1DKKf1lCqVFbIM"
+    "_id": "992Wi2KbhA/4r2nMShzY0Z"
   },
   {
     "__type__": "cc.Node",
@@ -817,7 +820,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "d7SHuYM/hFkYTNsflAG/Kq"
+    "_id": "e1bJ2CwpxEfLHOD5YIs1Zw"
   },
   {
     "__type__": "cc.Node",
@@ -879,7 +882,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "27vbqVoFlN6bW6Yy0KYz9v"
+    "_id": "b6DRUC9AhADIntdVyRYKa/"
   },
   {
     "__type__": "cc.Label",
@@ -909,7 +912,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 1,
     "_N$cacheMode": 0,
-    "_id": "bcuWY3HLlOG6kSKUZebN62"
+    "_id": "31lseEzkJM9bqqI8Z2qcRU"
   },
   {
     "__type__": "cc.Sprite",
@@ -941,7 +944,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "2eQoX/qW1CCYPWVgJJWdOu"
+    "_id": "6aFCWVSQdOoZfTp/zoB5I6"
   },
   {
     "__type__": "cc.Widget",
@@ -968,7 +971,7 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 100,
     "_originalHeight": 40,
-    "_id": "f8J3cXHo1PfpqXmsyaMluX"
+    "_id": "f9uv56Y7FBjZ+vrjDCxM0U"
   },
   {
     "__type__": "cc.Button",
@@ -1054,7 +1057,7 @@
     "_N$target": {
       "__id__": 15
     },
-    "_id": "38nqik1J1Llph4N9UoWaRi"
+    "_id": "04QTfBkepM7Y5NGZarm+Bo"
   },
   {
     "__type__": "cc.ClickEvent",
@@ -1063,12 +1066,12 @@
     },
     "component": "",
     "_componentId": "469a68TozpBQ4ob2lBK9rXj",
-    "handler": "testFun2",
+    "handler": "touchPoker",
     "customEventData": ""
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Button",
+    "_name": "出牌",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -1078,7 +1081,7 @@
         "__id__": 23
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 28
@@ -1107,8 +1110,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -12.261,
-        7.007,
+        504.188,
+        163.009,
         0,
         0,
         0,
@@ -1130,7 +1133,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "e1OigU1Z5MRo0xMpnqgIcH"
+    "_id": "76gJfQ5cxHA6C6Ca2PkufR"
   },
   {
     "__type__": "cc.Node",
@@ -1199,7 +1202,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "95bTWqAjhI2J/8PaDfLBRt"
+    "_id": "1eKDjiIOZHCKmyARHLuSz+"
   },
   {
     "__type__": "cc.Node",
@@ -1261,7 +1264,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "aa0X7tK0pLboKjrfBGcv5Q"
+    "_id": "cavb2V74JKPaYPt3MGYlxd"
   },
   {
     "__type__": "cc.Label",
@@ -1277,8 +1280,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "button",
-    "_N$string": "button",
+    "_string": "出牌",
+    "_N$string": "出牌",
     "_fontSize": 20,
     "_lineHeight": 40,
     "_enableWrapText": false,
@@ -1291,7 +1294,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 1,
     "_N$cacheMode": 0,
-    "_id": "89Go0nPmhLyK4YdLwc2bmM"
+    "_id": "dfanG1y91A8LR5OqbyPxlh"
   },
   {
     "__type__": "cc.Sprite",
@@ -1323,7 +1326,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "24cTWLqG5DerI5Fmf3Q1XQ"
+    "_id": "ce7ucDX4RM+L1I74lCgkv+"
   },
   {
     "__type__": "cc.Widget",
@@ -1350,7 +1353,7 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 100,
     "_originalHeight": 40,
-    "_id": "c272QDoIpMwapM6geHja+x"
+    "_id": "5c2ZUqGldAWai35TFhduO+"
   },
   {
     "__type__": "cc.Button",
@@ -1364,11 +1367,7 @@
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [
-      {
-        "__id__": 29
-      }
-    ],
+    "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 2,
@@ -1436,17 +1435,99 @@
     "_N$target": {
       "__id__": 23
     },
-    "_id": "b2wOzLyytFzJ439/odXQOA"
+    "_id": "e6UlFxTyNH9b2GCT6iHGnK"
   },
   {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 2
+    "__type__": "cc.Node",
+    "_name": "人没齐Label",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 5
     },
-    "component": "",
-    "_componentId": "469a68TozpBQ4ob2lBK9rXj",
-    "handler": "testFun",
-    "customEventData": ""
+    "_children": [],
+    "_active": false,
+    "_components": [
+      {
+        "__id__": 30
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 200,
+      "height": 50.4
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        328.447,
+        257.294,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "66XDNl8jZEUK21OU/Jov5E"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 29
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_useOriginalSize": false,
+    "_string": "人还没齐！",
+    "_N$string": "人还没齐！",
+    "_fontSize": 40,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": "11CHyK4DZJXrn7IxWYcppE"
   },
   {
     "__type__": "cc.Sprite",
@@ -1506,6 +1587,183 @@
     },
     "_enabled": true,
     "uid": "",
+    "isBegin": false,
+    "is_need_excute": true,
+    "image": [
+      {
+        "__uuid__": "84953858-57aa-4f3a-b9f3-f712def85aa3"
+      },
+      {
+        "__uuid__": "5c4aa444-0546-4155-a2c0-05074e3b34b6"
+      },
+      {
+        "__uuid__": "bb01d4aa-88e0-4b3d-8355-4052b11784d9"
+      },
+      {
+        "__uuid__": "db4c154f-7626-42d3-822f-8b4e9bc17322"
+      },
+      {
+        "__uuid__": "84bc0648-4029-44c0-982a-a063803ce223"
+      },
+      {
+        "__uuid__": "f5605f34-3257-44bd-a61d-05fb57977cd8"
+      },
+      {
+        "__uuid__": "7dc8c1f4-41cb-4f2b-ae46-8b3fe9908366"
+      },
+      {
+        "__uuid__": "de9eac75-2c83-4dc1-a6d8-ed3de88d9aa7"
+      },
+      {
+        "__uuid__": "682896f3-8cd3-4602-963c-190be8ef842b"
+      },
+      {
+        "__uuid__": "6020b1b6-7bd3-4988-a3ef-a7e2e8359c39"
+      },
+      {
+        "__uuid__": "7f2edfd4-0947-4a8d-bb8a-948b2cc13ddb"
+      },
+      {
+        "__uuid__": "6ca578d9-3e34-48a7-a2bb-02b5a936788f"
+      },
+      {
+        "__uuid__": "b9c56f5f-80e6-4df0-9630-63b9a2968e7b"
+      },
+      {
+        "__uuid__": "05932316-b9cd-4bf3-b47e-d5e8fcd63d99"
+      },
+      {
+        "__uuid__": "696f2673-77d5-44d6-ab82-b1c82b4e3e60"
+      },
+      {
+        "__uuid__": "99cdac81-b577-4dac-9d2e-e9b35cb929f7"
+      },
+      {
+        "__uuid__": "ddafc921-b0cc-4dd6-86ea-9109cc55f9dd"
+      },
+      {
+        "__uuid__": "c61765e3-5228-4da4-a13b-c96af23ca480"
+      },
+      {
+        "__uuid__": "9ed9fa44-b36c-40a5-b2e2-27269be2ad32"
+      },
+      {
+        "__uuid__": "cbb8cee6-59b9-4847-904c-ee0f89e152da"
+      },
+      {
+        "__uuid__": "ec3425d4-bf71-4a11-bbdd-07abda191b37"
+      },
+      {
+        "__uuid__": "35aa4809-1602-4ecb-8cd9-156df27a6278"
+      },
+      {
+        "__uuid__": "975f22bf-b784-4729-8bfe-91fff39edaad"
+      },
+      {
+        "__uuid__": "6504efb2-16ff-4f98-81b0-17669b620c1c"
+      },
+      {
+        "__uuid__": "e371d6af-3d19-4a6a-895a-905ea2e33ae7"
+      },
+      {
+        "__uuid__": "3e113257-7dcb-4f41-9a54-c4ece4dbece3"
+      },
+      {
+        "__uuid__": "2be41e9f-bf2a-4639-90a7-40c4ae675cf4"
+      },
+      {
+        "__uuid__": "1a483343-6ed3-43b4-8000-55d58fdd68e5"
+      },
+      {
+        "__uuid__": "ea314d92-b872-4a36-840f-9f1a051be7bc"
+      },
+      {
+        "__uuid__": "f3bd9829-46ed-499a-9c3e-d692f784e9bc"
+      },
+      {
+        "__uuid__": "f06d662c-2c37-4122-9774-8464ab29b7bc"
+      },
+      {
+        "__uuid__": "bec52364-9306-4fd3-807f-860f36b777bd"
+      },
+      {
+        "__uuid__": "4fecd624-eba7-485e-9891-ff1604eb6570"
+      },
+      {
+        "__uuid__": "a40338ce-0f0e-4d25-ada4-8688167bc8bd"
+      },
+      {
+        "__uuid__": "420dacea-caf1-417c-9af7-4e9e5a62c511"
+      },
+      {
+        "__uuid__": "8e3173f7-f969-4925-a09b-b80ff3d3dc48"
+      },
+      {
+        "__uuid__": "3aede6ae-c74a-4ddc-8583-25165d31ba6c"
+      },
+      {
+        "__uuid__": "2d58df80-5951-4c98-aff1-92bf95ab362a"
+      },
+      {
+        "__uuid__": "49450486-2984-449c-9dc6-45bd96d1a622"
+      },
+      {
+        "__uuid__": "8396d771-eae8-4664-9487-b4b94ac2410c"
+      },
+      {
+        "__uuid__": "cc9291fc-f2b5-457b-b832-aa28c4208e92"
+      },
+      {
+        "__uuid__": "c9ac4ab9-1716-4ed4-8a86-018b3296259e"
+      },
+      {
+        "__uuid__": "639dd0dc-7ff5-447f-a817-ed300c9e3104"
+      },
+      {
+        "__uuid__": "7f697d5d-ce88-4b69-83c6-25f134b5a915"
+      },
+      {
+        "__uuid__": "368fb99b-fd3d-4e59-81f0-8a73185d29c7"
+      },
+      {
+        "__uuid__": "8c6ceaf8-0173-46af-a3de-e2f0a5b5265b"
+      },
+      {
+        "__uuid__": "e803400f-7231-4cd6-8172-ddb13959e4c5"
+      },
+      {
+        "__uuid__": "29d711e6-7985-42be-abd0-65c284c69895"
+      },
+      {
+        "__uuid__": "eb0efc6d-39d3-4dad-894b-c2c4e1bff25b"
+      },
+      {
+        "__uuid__": "cc3fbd91-068b-4911-be48-31e6255feaf3"
+      },
+      {
+        "__uuid__": "86403db6-d0ff-45e8-aead-505935f84679"
+      },
+      {
+        "__uuid__": "af4a285c-3b06-40ad-9113-f09290aa0629"
+      }
+    ],
+    "buttons": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "label": [],
+    "priority": 50,
+    "me": null,
+    "opponent": null,
+    "deck": [],
+    "map": null,
+    "angles": 30,
     "_id": "57sPv34nVLb60+cnO15C5J"
   }
 ]
