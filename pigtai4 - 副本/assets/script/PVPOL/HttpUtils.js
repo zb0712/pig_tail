@@ -29,7 +29,7 @@ class HttpUtil {
                     let jsonObj = JSON.parse(xhr.responseText)
                     t.token = ` Bearer ${jsonObj.data.token}`
                     cc.log(t.token)
-                    resolve(xhr.status)
+                    resolve(jsonObj)
                 }
             }
             xhr.send(formData)
@@ -91,7 +91,7 @@ class HttpUtil {
 
     /**
      * 根据uuid加入对局
-     * @param {*}} uuid 
+     * @param {*} uuid 
      * @returns 
      */
     joinGame(uuid) {
@@ -127,7 +127,7 @@ class HttpUtil {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     let jsonObj = JSON.parse(xhr.responseText)
-                    cc.log(jsonObj)
+                    // cc.log(jsonObj)
                     resolve(jsonObj)
                 } else if (xhr.status != 200) {
                     reject(xhr.status)
@@ -145,6 +145,7 @@ class HttpUtil {
             }
             let xhr = new XMLHttpRequest()
             xhr.open('put', `http://172.17.173.97:9000/api/game/${uuid}`, true)
+            xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("Authorization", t.token)
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
@@ -168,6 +169,8 @@ class HttpUtil {
             }
             let xhr = new XMLHttpRequest()
             xhr.open('put', `http://172.17.173.97:9000/api/game/${uuid}`, true)
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            // xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("Authorization", t.token)
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
@@ -178,7 +181,8 @@ class HttpUtil {
                     reject(xhr.status)
                 }
             }
-            xhr.send(JSON.stringify(obj))
+            // xhr.send(JSON.stringify(obj))
+            xhr.send(`type=1&card=${card}`)
         })
     }
 

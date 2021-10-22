@@ -186,7 +186,7 @@
       "array": [
         0,
         0,
-        351.60631393648214,
+        267.68845759556956,
         0,
         0,
         0,
@@ -500,9 +500,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 247,
+      "g": 234,
+      "b": 234,
       "a": 255
     },
     "_contentSize": {
@@ -590,7 +590,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "d47e58a7-79e6-421c-af0e-3547ae740a65"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -641,7 +641,9 @@
       "__id__": 6
     },
     "_enabled": true,
-    "_normalMaterial": null,
+    "_normalMaterial": {
+      "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+    },
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 1.2,
@@ -697,7 +699,7 @@
       "a": 200
     },
     "_N$normalSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "d47e58a7-79e6-421c-af0e-3547ae740a65"
     },
     "_N$pressedSprite": {
       "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
@@ -4405,7 +4407,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "showInEditor": false,
-    "_id": "a3TcL1WfRFarSM5e6SDTE7"
+    "_id": "1blUMDlMNMkKdv+HeMQa46"
   },
   {
     "__type__": "cc.Label",
@@ -4435,7 +4437,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "cdROBz5/pCgYPjBSBLEK6j"
+    "_id": "a0QoHQTwdHqpMWaA92INpg"
   },
   {
     "__type__": "cc.PrivateNode",
@@ -4498,7 +4500,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "showInEditor": false,
-    "_id": "0ac31dfYxD6rK317v0/MRK"
+    "_id": "0ek1D1owFF85YFuU/XkttP"
   },
   {
     "__type__": "cc.Label",
@@ -4528,7 +4530,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "f2iH2FVsRF95r06WWTwzD9"
+    "_id": "8eqEZPDuBJWa7am/RgNS3l"
   },
   {
     "__type__": "cc.PrivateNode",
@@ -4591,7 +4593,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "showInEditor": false,
-    "_id": "35F9yywL5JbI8rK5HL6In2"
+    "_id": "236MqzDYtIBYUEwzyob9/g"
   },
   {
     "__type__": "cc.Label",
@@ -4621,7 +4623,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_id": "686Sxvc3xERY7Q8ZtshZrG"
+    "_id": "33Dkk1MMtHcLm2oz8kEsBU"
   },
   {
     "__type__": "cc.RichText",
