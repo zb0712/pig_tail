@@ -1,6 +1,6 @@
 let httpUtil = require("./HttpUtils")
 let Player = require("./player.js")
-let ai = require("./AIOL.js")
+let AI = require("./AIOL.js")
 cc.Class({
     extends: cc.Component,
 
@@ -35,8 +35,6 @@ cc.Class({
         opponentHandCardNodes: [],//对手手牌对应节点
         collocation: 0, //为1托管，0不托管
         ai: 0 //1为AI进行 0为玩家进行
-
-
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -157,20 +155,37 @@ cc.Class({
                                 } else {  // 出牌
                                     //获取出牌的花色
                                     let decor = this.map.get(cardStr[0])
-                                    //获取出的牌
-                                    let index = this.opponent.handcard[decor].length - 1
-                                    let card = this.opponent.handcard[decor][index]
-                                    if (card == cardStr) {
-                                        cc.log("Right")
+                                    //获取出牌的点数
+                                    let point
+                                    if (cardStr.length == 3) {
+                                        point = this.map.get(cardStr[0]) * 13 + 10 - 1
+                                    } else {
+                                        point = this.map.get(cardStr[0]) * 13 + this.map.get(cardStr[1]) - 1
                                     }
+
+
                                     //逻辑出牌
+                                    let index = this.opponent.handcard[decor].indexOf(cardStr)
+                                    let card = this.opponent.handcard[decor][index]
+                                    let last_index = this.opponent.handcard[decor].length - 1
+                                    let temp = this.opponent.handcard[decor][last_index]
+                                    this.opponent.handcard[decor][index] = temp
+                                    this.opponent.handcard[decor][last_index] = card
                                     this.opponent.handcard[decor].pop()
 
+
                                     //出牌ui
-                                    index = this.opponentHandCardNodes[decor].length - 1
+                                    let last_Node = this.opponentHandCardNodes[decor][last_index]
                                     let cardNode = this.opponentHandCardNodes[decor][index]
+                                    temp = last_Node
+                                    this.opponentHandCardNodes[decor][last_index] = cardNode
+                                    this.opponentHandCardNodes[decor][index] = temp
+                                    // last_index = this.opponentHandCardNodes[decor].length - 1
+                                    // let cardNode = this.opponentHandCardNodes[decor][index]
                                     this.opponentHandCardNodes[decor].pop()
                                     this.cardNodes.push(cardNode)
+
+
                                     let action1 = cc.rotateTo(0.5, this.opponent.angles);
                                     if (this.opponent.angles === 75) {
                                         this.opponent.angles = -75;
@@ -224,7 +239,7 @@ cc.Class({
                                 this.is_need_excute = false
                                 //调整按钮的交互性
                                 this.scheduleOnce(function () {
-                                    if (this.collocation == 0) { //如果不是托管状态
+                                    if (this.collocation == 0 && this.ai == 0) { //如果不是托管状态和ai状态
                                         cc.find("Canvas/打游戏背景图/摸牌").active = true
                                         cc.find("Canvas/打游戏背景图/出牌").active = true
                                         cc.find("Canvas/打游戏背景图/出牌").getComponent(cc.Button).interactable = false
@@ -242,6 +257,14 @@ cc.Class({
                             }
                             let func = this.touchPoker
                             this.scheduleOnce(func, 1)
+                        }
+                        if (this.ai == 1) {
+                            cc.find("Canvas/打游戏背景图/摸牌").active = false
+                            cc.find("Canvas/打游戏背景图/出牌").active = false
+                            // AI.collect(this)
+                            this.scheduleOnce(function () {
+                                AI.AIing(this)
+                            }, 1)
                         }
                     }
                     //如果对局已经结束 判断执行最后一步操作对应ui 显示结果
@@ -391,11 +414,11 @@ cc.Class({
                                 cc.find("Canvas/result/你的剩余手牌").getComponent(cc.Label).string += this.me.sum()
                                 cc.find("Canvas/result/对方剩余手牌").getComponent(cc.Label).string += this.opponent.sum()
                                 if (this.me.sum() < this.opponent.sum()) {
-                                    cc.find("Canvas/result/胜利").getComponent(cc.Label).string = "你输了QAQ"
+                                    cc.find("Canvas/result/胜利").getComponent(cc.Label).string = "你赢了 O(∩_∩)O"
                                 } else if (this.me.sum() == this.opponent.sum()) {
                                     cc.find("Canvas/result/胜利").getComponent(cc.Label).string = "平局！"
                                 } else {
-                                    cc.find("Canvas/result/胜利").getComponent(cc.Label).string = "你赢了 O(∩_∩)O"
+                                    cc.find("Canvas/result/胜利").getComponent(cc.Label).string = "你输了QAQ"
                                 }
                             }, 1)
                         })
@@ -411,24 +434,45 @@ cc.Class({
 
     //开始按钮点击事件
     Begin() {
+        cc.find("Canvas/打游戏背景图/AI开始").active = false
         httpUtil.getLast(this.uid).then((response) => {
             if (response.code == 200) {
                 if (response.data.last_msg == '对局刚开始' && response.data.your_turn == true) {
-                    this.me.p = 0
-                    this.opponent.p = 1
                     this.is_need_excute = false
                     cc.find("Canvas/打游戏背景图/摸牌").active = true
                     cc.find("Canvas/打游戏背景图/出牌").active = true
                     cc.find("Canvas/打游戏背景图/托管").active = true
                     cc.find("Canvas/打游戏背景图/出牌").getComponent(cc.Button).interactable = false
-                } else if (response.data.last_msg == '对局刚开始' && response.data.your_turn == false) {
-                    this.me.p = 1
-                    this.opponent.p = 0
                 }
                 cc.find("Canvas/打游戏背景图/人没齐Label").active = false
                 cc.find("Canvas/打游戏背景图/开始").active = false
                 cc.find("Canvas/打游戏背景图/托管").active = true
                 this.isBegin = true
+            }
+            if (response.code == 403) {
+                cc.find("Canvas/打游戏背景图/人没齐Label").active = true
+                setTimeout(function () {
+                    cc.find("Canvas/打游戏背景图/人没齐Label").active = false
+                }, 2000)
+            }
+        })
+    },
+
+    aiBegin() {
+        cc.find("Canvas/打游戏背景图/开始").active = false
+        cc.find("Canvas/打游戏背景图/摸牌").active = false
+        cc.find("Canvas/打游戏背景图/出牌").active = false
+        cc.find("Canvas/打游戏背景图/托管").active = false
+        this.ai = 1
+        AI.initialize()
+        httpUtil.getLast(this.uid).then((response) => {
+            if (response.code == 200) {
+                this.isBegin = true
+                cc.find("Canvas/打游戏背景图/人没齐Label").active = false
+                cc.find("Canvas/打游戏背景图/AI开始").active = false
+                if (response.data.last_msg == '对局刚开始' && response.data.your_turn == true) {
+                    this.is_need_excute = false
+                }
             }
             if (response.code == 403) {
                 cc.find("Canvas/打游戏背景图/人没齐Label").active = true
@@ -446,12 +490,18 @@ cc.Class({
         //调整按钮交互性
         cc.find("Canvas/打游戏背景图/摸牌").active = false
         cc.find("Canvas/打游戏背景图/出牌").active = false
-
         httpUtil.touchPoker(this.uid).then((response) => {
             if (response.code == 200) {
-
                 let last_code = response.data.last_code
                 let arr = last_code.split(" ")
+                let p = arr[0]
+                if (p == 0) {
+                    this.me.p = 0
+                    this.opponent.p = 1
+                } else {
+                    this.me.p = 1
+                    this.opponent.p = 0
+                }
                 let cardStr = arr[2]
 
                 //执行ui
@@ -522,8 +572,10 @@ cc.Class({
                 if (response.data.last_msg == '对局刚开始' && response.data.your_turn == false) {
                     this.is_need_excute = false
                 }
-                //重新开启轮询
-                this.schedule(this.callback, 2)
+                //1s重新开启轮询 保证ui先执行完成
+                this.scheduleOnce(function () {
+                    this.schedule(this.callback, 2)
+                }, 1)
             }
         })
     },
@@ -602,7 +654,7 @@ cc.Class({
         //逻辑出牌
         let cardStr = this.me.handcard[this.now_decor][this.me.handcard[this.now_decor].length - 1]
         httpUtil.putPoker(cardStr, this.uid).then((response) => {
-            cc.log(response)
+
             if (response.code == 200) {
                 this.me.handcard[this.now_decor].pop()
                 //出牌UI
@@ -665,14 +717,16 @@ cc.Class({
 
                 //设置是否需要执行对手UI
                 this.is_need_excute = true
-                //重新开启轮询
-                this.schedule(this.callback, 2)
                 //调整按钮交互性
                 this.activationcard()
                 this.buttons[0].node.active = true;
                 this.buttons[1].node.active = true;
                 this.buttons[2].node.active = true;
                 this.buttons[3].node.active = true;
+                //1s后重新开启轮询保证ui的执行
+                this.scheduleOnce(function () {
+                    this.schedule(this.callback, 2)
+                }, 1)
             }
         })
 
@@ -733,6 +787,10 @@ cc.Class({
         }
         this.schedule(this.callback, 2)
 
+    },
+    toroomList()
+    {
+        cc.director.loadScene("roomList");
     },
 
     // update(dt) {},

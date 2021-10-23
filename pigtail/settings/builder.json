@@ -1,7 +1,7 @@
 {
-  "title": "pigtai2",
+  "title": "PigTail",
   "packageName": "",
-  "startScene": "b0dc5654-0c65-4e89-b5f0-8df073ab6f84",
+  "startScene": "62703001-06d7-4e69-8da1-769602b91fc1",
   "excludeScenes": [],
   "includeSDKBox": false,
   "orientation": {
@@ -12,7 +12,7 @@
   },
   "webOrientation": "auto",
   "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": true,
+  "inlineSpriteFrames_native": false,
   "mergeStartScene": false,
   "optimizeHotUpdate": false,
   "md5Cache": false,
@@ -39,5 +39,6 @@
     "scheme": "https",
     "skipRecord": false
   },
-  "appBundle": false
+  "appBundle": false,
+  "includeAnySDK": false
 }

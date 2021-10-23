@@ -103,7 +103,7 @@ class HttpUtil {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     let jsonObj = JSON.parse(xhr.responseText)
-                    cc.log(jsonObj)
+
                     resolve(jsonObj)
                 } else if (xhr.status != 200) {
                     reject(xhr.status)
@@ -127,7 +127,6 @@ class HttpUtil {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     let jsonObj = JSON.parse(xhr.responseText)
-                    // cc.log(jsonObj)
                     resolve(jsonObj)
                 } else if (xhr.status != 200) {
                     reject(xhr.status)

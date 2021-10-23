@@ -339,8 +339,11 @@ cc.Class({
         }, (reason) => {
         })
 
+    },
+    tologin()
+    {
+        cc.director.loadScene("login");
     }
-
 
 
 

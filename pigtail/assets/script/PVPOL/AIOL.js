@@ -32,8 +32,12 @@ var AI = {
         this.mysum = thi.me.sum();
         this.opponent_sum = thi.opponent.sum();
         this.decksum = thi.deck.length;
-        let cardStr = thi.deck[this.decksum - 1]
-        this.deckdecor = thi.map.get(cardStr[0]);
+        if (this.decksum > 0) {
+            let cardStr = thi.deck[this.decksum - 1]
+            this.deckdecor = thi.map.get(cardStr[0]);
+        } else {
+            this.deckdecor = -1
+        }
         this.pokersum = 52 - this.mysum - this.opponent_sum - this.decksum
     },
 
@@ -51,9 +55,6 @@ var AI = {
             }
             this.a[this.discarddecor[j]] = -1;
         }
-        for (let i = 0; i < 4; i++) {
-            cc.log(this.discarddecor[i]);
-        }
     },
 
     //记录AI当前想出的牌的花色，并出牌，有动作
@@ -65,6 +66,7 @@ var AI = {
     //AI计算，摸牌好还是出那张花色的牌好
     //主要获胜思想：尽量让自己往无论自己摸牌都不会输的情况靠
     AIing: function (thi) {
+        thi.unschedule(thi.callback)
         //收集对局信息
         this.collect(thi);
 
@@ -78,30 +80,41 @@ var AI = {
                 thi.touchPoker();
                 return;
             }
+            let x = 0
+            if (this.mysum + this.decksum > this.pokersum) {
+                x = this.pokersum
+            } else {
+                x = this.mysum + this.decksum
+            }
             //当P1没有把握怎么摸牌都可以赢的时候，AI尽力吃牌
-            if (this.opponent_sum + this.pokersum * 2 - 1 > this.mysum + this.decksum + 1) {
-                if (this.deckdecor != -1) {
-                    if (this.myhandcard[this.deckdecor] > 0) {
-                        this.mydecor = this.deckdecor;
-                        this.myaction(thi);
+            if (this.pokersum > 4) {
+                if (this.opponent_sum + this.pokersum + x - 1 > this.mysum + this.decksum + 2) {
+                    if (this.deckdecor != -1) {
+                        if (this.myhandcard[this.deckdecor] > 0) {
+                            this.mydecor = this.deckdecor;
+                            this.myaction(thi);
+                        }
+                        else {
+                            // 添加if
+                            if (this.opponent_sum > 0) {
+                                for (let i = 0; i < 4; i++) {
+                                    if (this.myhandcard[i] > 0 && this.opponent_handcard[i] === 0) {
+                                        this.mydecor = i;
+                                        this.myaction(thi);
+                                        return;
+                                    }
+                                }
+                            }
+                            thi.touchPoker();
+                        }
+                        return;
                     }
                     else {
-                        for (let i = 0; i < 4; i++) {
-                            if (this.myhandcard[i] > 0 && this.opponent_handcard[i] === 0) {
-                                this.mydecor = i;
-                                this.myaction(thi);
-                                return;
-                            }
-                        }
                         thi.touchPoker();
+                        return;
                     }
-                    return;
-                }
-                else {
-                    thi.touchPoker();
-                    return;
-                }
 
+                }
             }
             this.sortdiscarddecor();
             //当AI牌已经够多了，使绊子让P1吃牌
@@ -125,7 +138,7 @@ var AI = {
                 }
             }
             //若上面条件都不满足，说明只能摸牌了
-            thi.Touchcards();
+            thi.touchPoker();
         }
     }
 }

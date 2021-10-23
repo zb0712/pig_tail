@@ -31,6 +31,10 @@ cc.Class({
         }, (reason) => {
 
         })
+    },
+    tomain()
+    {
+        cc.director.loadScene("Main");
     }
 
     // update (dt) {},

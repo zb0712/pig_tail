@@ -1,0 +1,34 @@
+{
+  "ver": "2.3.3",
+  "uuid": "6522a2f9-ffc6-4171-8859-81fe76b0acfe",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
+  "subMetas": {
+    "摸牌4_副本": {
+      "ver": "1.0.4",
+      "uuid": "c8f828bb-ef80-44fd-a7c4-0685c3aa5227",
+      "rawTextureUuid": "6522a2f9-ffc6-4171-8859-81fe76b0acfe",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 100,
+      "height": 40,
+      "rawWidth": 100,
+      "rawHeight": 40,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
