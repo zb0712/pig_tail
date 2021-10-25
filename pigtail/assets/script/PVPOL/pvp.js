@@ -89,6 +89,14 @@ cc.Class({
                                 let arr = last_code.split(" ")
                                 let type = arr[1]
                                 let cardStr = arr[2]
+                                let p = arr[0]
+                                if (p == 0) {
+                                    this.me.p = 1
+                                    this.opponent.p = 0
+                                } else {
+                                    this.me.p = 0
+                                    this.opponent.p = 1
+                                }
                                 //翻牌
                                 if (type == 0) {
                                     //翻牌UI
@@ -273,6 +281,41 @@ cc.Class({
                             this.over = true
                             let last = response.data.last
                             let arr = last.split(" ")
+                            let top = response.data.top
+                            //如果我方超时
+                            if (top[0] == this.me.p) {
+                                //显示结果
+                                cc.find("Canvas/result").active = true
+                                cc.find("Canvas/打游戏背景图/摸牌").active = false
+                                cc.find("Canvas/打游戏背景图/出牌").active = false
+                                this.buttons[0].getComponent(cc.Button).interactable = false;
+                                this.buttons[1].getComponent(cc.Button).interactable = false;
+                                this.buttons[2].getComponent(cc.Button).interactable = false;
+                                this.buttons[3].getComponent(cc.Button).interactable = false;
+                                cc.find("Canvas/result/你的剩余手牌").getComponent(cc.Label).string += this.me.sum()
+                                cc.find("Canvas/result/对方剩余手牌").getComponent(cc.Label).string += this.opponent.sum()
+                                cc.find("Canvas/result/胜利").getComponent(cc.Label).string = "超时，您已自动判负"
+                                //取消轮询
+                                this.unschedule(this.callback);
+                                return
+                            }
+                            //如果对方超时
+                            if (top[0] == this.opponent.p) {
+                                //显示结果
+                                cc.find("Canvas/result").active = true
+                                cc.find("Canvas/打游戏背景图/摸牌").active = false
+                                cc.find("Canvas/打游戏背景图/出牌").active = false
+                                this.buttons[0].getComponent(cc.Button).interactable = false;
+                                this.buttons[1].getComponent(cc.Button).interactable = false;
+                                this.buttons[2].getComponent(cc.Button).interactable = false;
+                                this.buttons[3].getComponent(cc.Button).interactable = false;
+                                cc.find("Canvas/result/你的剩余手牌").getComponent(cc.Label).string += this.me.sum()
+                                cc.find("Canvas/result/对方剩余手牌").getComponent(cc.Label).string += this.opponent.sum()
+                                cc.find("Canvas/result/胜利").getComponent(cc.Label).string = "对方超时，您已自动判胜"
+                                //取消轮询
+                                this.unschedule(this.callback);
+                                return
+                            }
                             //如果是对面执行了最后一步则执行UI
                             if (arr[0] != this.me.p) {
                                 let type = arr[1]
